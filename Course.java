@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Defines a course at UBC specified by its four-letter abbreviation and number, as well as its sections.
@@ -8,9 +8,9 @@ import java.util.ArrayList;
  */
 public class Course {
 	private String name;
-	private ArrayList<Section> sections;
-	private ArrayList<Course> prereqs;
-	private ArrayList<Course> coreqs;
+	private List<Section> sections;
+	private List<Course> prereqs;
+	private List<Course> coreqs;
 	
 	/**
 	 * Constructs a new course with one section and no pre/co-requisites.
@@ -65,7 +65,7 @@ public class Course {
 	 * 
 	 * @return the pre-requisites for the course.
 	 */
-	public ArrayList<Course> getPrereqs() {
+	public List<Course> getPrereqs() {
 		return prereqs;
 	}
 
@@ -74,7 +74,7 @@ public class Course {
 	 * 
 	 * @return the co-requisites for the course.
 	 */
-	public ArrayList<Course> getCoreqs() {
+	public List<Course> getCoreqs() {
 		return coreqs;
 	}
 

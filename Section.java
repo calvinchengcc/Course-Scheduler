@@ -1,3 +1,4 @@
+
 /**
  * Defines a section of a course, specified by its number, term offered, start/end times, and its location.
  * 

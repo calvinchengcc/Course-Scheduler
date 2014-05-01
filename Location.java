@@ -1,3 +1,4 @@
+
 /**
  * Defines a location at UBC, specified by its building and room number.
  * 
