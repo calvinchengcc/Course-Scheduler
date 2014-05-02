@@ -29,7 +29,7 @@ public class Course {
 	/**
 	 * Constructs a new course with the given list of courses and no pre/co-requisites.
 	 * 
-	 * @param abbrev Four-letter abbreviation of the given UBC course.
+	 * @param abbrev Four-letter abbreviation of the given UBC course followed by the course number (e.g. CPSC 210).
 	 * @param sections A list of sections provided in the course.
 	 */
 	public Course(String abbrev, ArrayList<Section> sections) {
@@ -81,6 +81,6 @@ public class Course {
 	}
 
 	public String toString() {
-		return name;
+		return name + " (" + sections + ")";
 	}
 }

@@ -11,10 +11,13 @@ package cc.course;
  */
 public class CourseScheduler {
 	
+	private static Course a1 = new Course("CPSC 210", new Section("101", 1, Day.MWF, "13:00", "15:00", new Location("ESB", "1013")));
+	private static Course b2 = new Course("MATH 223", new Section("102", 1, Day.MWF, "15:00", "16:30", new Location("ESB", "125")));
+	
 	public static void main(String[] args) {
 		
-		Course a = new Course("CPSC 210", new Section("101", (byte) 1, Day.MWF, "13:00", "15:00", new Location("ESB", "1013")));
-		System.out.println(a);
+		
+		
+		return;
 	}
-
 }
