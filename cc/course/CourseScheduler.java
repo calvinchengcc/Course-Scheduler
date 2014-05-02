@@ -1,3 +1,5 @@
+package cc.course;
+
 /**
  * Defines a class that produces an optimal schedule given a number of courses,
  * or notifies the user if no such schedule is possible.

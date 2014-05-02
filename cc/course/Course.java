@@ -1,3 +1,5 @@
+package cc.course;
+
 import java.util.*;
 
 /**
