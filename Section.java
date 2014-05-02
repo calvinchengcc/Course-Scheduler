@@ -26,9 +26,9 @@ public class Section {
 	 * @param endTime	The ending time in 24-hour HH:MM format (e.g. <code>"13:00"</code> for 1:00 pm).
 	 * @param location	The location of the section offered.
 	 */
-	public Section(String number, byte term, Day[] days, String startTime, String endTime, Location location) {
+	public Section(String number, int term, Day[] days, String startTime, String endTime, Location location) {
 		this.number = number;
-		this.term = term;
+		this.term = (byte) term;
 		this.days = days;
 		this.startTime = startTime;
 		this.endTime = endTime;

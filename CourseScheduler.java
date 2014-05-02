@@ -8,10 +8,11 @@
  * @author Calvin Cheng
  */
 public class CourseScheduler {
-
+	
 	public static void main(String[] args) {
-		System.out.println("Hello");
-
+		
+		Course a = new Course("CPSC 210", new Section("101", (byte) 1, Day.MWF, "13:00", "15:00", new Location("ESB", "1013")));
+		System.out.println(a);
 	}
 
 }
