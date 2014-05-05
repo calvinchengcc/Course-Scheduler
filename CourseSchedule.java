@@ -5,9 +5,11 @@ import java.util.*;
  * 
  * @author Calvin Cheng
  */
-@SuppressWarnings("serial")
+
 public class CourseSchedule extends HashSet<Course> {
 	
+	private static final long serialVersionUID = 58959240153059461L;
+
 	/**
 	 * Constructs an empty course schedule.
 	 */
