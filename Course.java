@@ -30,7 +30,7 @@ public class Course {
 	 * Constructs a new course.
 	 * 
 	 * @param abbrev	Four-letter abbreviation of given UBC course, followed by the course number (e.g. CPSC 210).
-	 * @param number	The section number (e.g. <code>"001"</code>, <code>"912"</code>).
+	 * @param section	The section number (e.g. <code>"001"</code>, <code>"912"</code>).
 	 * 					Labs may start with the letter 'L' (e.g. <code>"L2G"</code>),
 	 * 					and tutorials may start with the letter 'T' (e.g. <code>"T2C"</code>).
 	 * @param term		The term in which this section is offered (<code>1</code> or <code>2</code>).

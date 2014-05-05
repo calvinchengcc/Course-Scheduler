@@ -20,7 +20,7 @@ public class CourseSchedule extends HashSet<Course> {
 	/**
 	 * Constructs a schedule specified by the given list of courses.
 	 * 
-	 * @param A list of courses to form the schedule.
+	 * @param schedule A list of courses to form the schedule.
 	 */
 	public CourseSchedule(Collection<Course> schedule) {
 		super(schedule);
