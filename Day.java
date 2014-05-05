@@ -1,4 +1,4 @@
-package cc.course;
+
 
 /**
  * Enumerates the days of the week, starting from Sunday.

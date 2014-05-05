@@ -1,22 +1,35 @@
-package cc.course;
+import java.util.*;
 
 /**
- * Defines a section of a course, specified by its number, term offered, start/end times, and its location.
+ * Defines a course at UBC, specified by:
+ * <ul>
+ * 	<li> its four-letter abbreviation and number; </li>
+ * 	<li> its section number; </li>
+ * 	<li> the term in which it is offered; </li>
+ * 	<li> the days of the week in which it is offered; </li>
+ * 	<li> the starting time; </li>
+ * 	<li> the ending time; </li>
+ * 	<li> the location; and <li>
+ *  <li> any pre-requisites/co-requisites. </li>
+ * </ul>
  * 
  * @author Calvin Cheng
  */
-public class Section {
-	
-	private String number;
+public class Course {
+	private String name;
+	private String section;
 	private byte term;
 	private Day[] days;
 	private String startTime;
 	private String endTime;
 	private Location location;
+	private List<Course> prereqs;
+	private List<Course> coreqs;
 	
 	/**
-	 * Constructs a Section object with given section number and times.
+	 * Constructs a new course.
 	 * 
+	 * @param abbrev	Four-letter abbreviation of given UBC course, followed by the course number (e.g. CPSC 210).
 	 * @param number	The section number (e.g. <code>"001"</code>, <code>"912"</code>).
 	 * 					Labs may start with the letter 'L' (e.g. <code>"L2G"</code>),
 	 * 					and tutorials may start with the letter 'T' (e.g. <code>"T2C"</code>).
@@ -25,25 +38,32 @@ public class Section {
 	 * @param startTime The starting time in 24-hour HH:MM format (e.g. <code>"08:30"</code> for 1:30 pm).
 	 * @param endTime	The ending time in 24-hour HH:MM format (e.g. <code>"13:00"</code> for 1:00 pm).
 	 * @param location	The location of the section offered.
+	 * @param prereqs 	A list of pre-requisites required for the course. Can be empty.
+	 * @param coreqs	A list of co-requisites required for the course. Can by empty.
 	 */
-	public Section(String number, int term, Day[] days, String startTime, String endTime, Location location) {
-		this.number = number;
+	public Course(String abbrev, String section,
+			int term, Day[] days, String startTime, String endTime, Location location,
+			ArrayList<Course> prereqs, ArrayList<Course> coreqs) {
+		name = abbrev;
+		this.section = section;
 		this.term = (byte) term;
 		this.days = days;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.location = location;
+		this.prereqs = prereqs;
+		this.coreqs = coreqs;
 	}
 	
 	/**
-	 * Returns the number of the section. In most cases, this number is three characters long.
+	 * Returns the section number. In most cases, this is three characters long.
 	 * <p>
 	 * Labs may start with the letter 'L' (e.g. <code>"L2G"</code>),
 	 * and tutorials may start with the letter 'T' (e.g. <code>"T2C"</code>).
 	 * @return the number of the section.
 	 */
-	public String getNumber() {
-		return number;
+	public String getSection() {
+		return section;
 	}
 	
 	/**
@@ -94,7 +114,25 @@ public class Section {
 		return location;
 	}
 	
+	/**
+	 * Returns an {@link ArrayList} of the pre-requisites for the course.
+	 * 
+	 * @return the pre-requisites for the course.
+	 */
+	public List<Course> getPrereqs() {
+		return prereqs;
+	}
+
+	/**
+	 * @return an {@link ArrayList} of the co-requisites for the course.
+	 * 
+	 * @return the co-requisites for the course.
+	 */
+	public List<Course> getCoreqs() {
+		return coreqs;
+	}
+
 	public String toString() {
-		return number + "";
+		return name + ":" + section;
 	}
 }
