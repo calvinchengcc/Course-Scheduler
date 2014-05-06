@@ -9,7 +9,7 @@ import java.util.*;
  * 	<li> the days of the week in which it is offered; </li>
  * 	<li> the starting time; </li>
  * 	<li> the ending time; </li>
- * 	<li> the location; and <li>
+ * 	<li> the location; and </li>
  *  <li> any pre-requisites/co-requisites. </li>
  * </ul>
  * 
@@ -23,8 +23,8 @@ public class Course {
 	private String startTime;
 	private String endTime;
 	private Location location;
-	private List<Course> prereqs;
-	private List<Course> coreqs;
+	private Set<Course> prereqs;
+	private Set<Course> coreqs;
 	
 	/**
 	 * Constructs a new course.
@@ -43,7 +43,7 @@ public class Course {
 	 */
 	public Course(String abbrev, String section,
 			int term, Day[] days, String startTime, String endTime, Location location,
-			ArrayList<Course> prereqs, ArrayList<Course> coreqs) {
+			Set<Course> prereqs, Set<Course> coreqs) {
 		name = abbrev;
 		this.section = section;
 		this.term = (byte) term;
@@ -53,6 +53,17 @@ public class Course {
 		this.location = location;
 		this.prereqs = prereqs;
 		this.coreqs = coreqs;
+	}
+	
+	/**
+	 * Returns true if the course has a time conflict with the given course.
+	 * 
+	 * @param course The course with which to check for a time conflict.
+	 * @return <code>true</code> if a time conflict exists with the given course.
+	 */
+	public boolean hasTimeConflict(Course course) {
+		return (getStartHour() < course.getStartHour() && course.getStartHour() < getEndHour()) ||
+				(course.getStartHour() < getStartHour() && getStartHour() < course.getEndHour());
 	}
 	
 	/**
@@ -96,6 +107,26 @@ public class Course {
 	}
 	
 	/**
+	 * Returns the starting hour of the section. This time is represented in a byte representing the hour portion
+	 * of the time (e.g. <code>13:30</code> would return <code>13</code>).
+	 * 
+	 * @return the starting hour of the section.
+	 */
+	public byte getStartHour() {
+		return Byte.parseByte(startTime.substring(0,2));
+	}
+	
+	/**
+	 * Returns the starting minute of the section. This time is represented in a byte representing the minute portion
+	 * of the time (e.g. <code>13:30</code> would return <code>30</code>).
+	 * 
+	 * @return the starting minute of the section.
+	 */
+	public byte getStartMinute() {
+		return Byte.parseByte(startTime.substring(3,5));
+	}
+	
+	/**
 	 * Returns the ending time of the section. This time is represented in 24-hour, HH:MM format. For instance,
 	 * 1:20 pm would be represented as <code>"13:20"</code>.
 	 * 
@@ -103,6 +134,26 @@ public class Course {
 	 */
 	public String getEndTime() {
 		return endTime;
+	}
+	
+	/**
+	 * Returns the ending hour of the section. This time is represented in a byte representing the hour portion
+	 * of the time (e.g. <code>13:30</code> would return <code>13</code>).
+	 * 
+	 * @return the ending hour of the section.
+	 */
+	public byte getEndHour() {
+		return Byte.parseByte(startTime.substring(0,2));
+	}
+	
+	/**
+	 * Returns the ending minute of the section. This time is represented in a byte representing the minute portion
+	 * of the time (e.g. <code>13:30</code> would return <code>30</code>).
+	 * 
+	 * @return the ending minute of the section.
+	 */
+	public byte getEndMinute() {
+		return Byte.parseByte(startTime.substring(3,5));
 	}
 	
 	/**
@@ -119,16 +170,16 @@ public class Course {
 	 * 
 	 * @return the pre-requisites for the course.
 	 */
-	public List<Course> getPrereqs() {
+	public Set<Course> getPrereqs() {
 		return prereqs;
 	}
 
 	/**
-	 * @return an {@link ArrayList} of the co-requisites for the course.
+	 * Return an {@link ArrayList} of the co-requisites for the course.
 	 * 
 	 * @return the co-requisites for the course.
 	 */
-	public List<Course> getCoreqs() {
+	public Set<Course> getCoreqs() {
 		return coreqs;
 	}
 
