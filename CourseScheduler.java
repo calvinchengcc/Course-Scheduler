@@ -13,10 +13,10 @@ public class CourseScheduler {
 	
 	private static Course a1 = new Course("CPSC 210", "101",
 			1, Day.MWF, "13:00", "15:00", new Location("ESB", "1013"),
-			new ArrayList<Course>(), new ArrayList<Course>());
+			new HashSet<Course>(), new HashSet<Course>());
 	private static Course b2 = new Course("MATH 223","102", 1,
-			Day.MWF, "15:00", "16:30", new Location("ESB", "125"),
-			new ArrayList<Course>(), new ArrayList<Course>());
+			Day.MWF, "14:30", "16:30", new Location("ESB", "125"),
+			new HashSet<Course>(), new HashSet<Course>());
 	
 	public static void main(String[] args) {
 		

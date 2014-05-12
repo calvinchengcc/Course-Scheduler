@@ -7,8 +7,8 @@ import java.util.*;
  */
 
 public class CourseSchedule extends HashSet<Course> {
-	
-	private static final long serialVersionUID = 58959240153059461L;
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs an empty course schedule.
@@ -34,6 +34,21 @@ public class CourseSchedule extends HashSet<Course> {
 	 * @return <code>true</code> if the schedule is valid; <code>false</code> otherwise.
 	 */
 	public boolean isValid() {
-		return false;
+		
+		for(Course c : this) {
+			for (Course i : this) {
+				if (c.hasTimeConflict(i)) {
+					return false;
+				}
+			}
+		}
+		
+		for(Course c : this) {
+			if(!contains(c.getPrereqs()) || !contains(c.getCoreqs())) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }
