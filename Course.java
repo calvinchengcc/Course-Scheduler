@@ -23,8 +23,8 @@ public class Course {
 	private String startTime;
 	private String endTime;
 	private Location location;
-	private Set<Course> prereqs;
-	private Set<Course> coreqs;
+	private Set<String> prereqs;
+	private Set<String> coreqs;
 	
 	/**
 	 * Constructs a new course.
@@ -43,7 +43,7 @@ public class Course {
 	 */
 	public Course(String abbrev, String section,
 			int term, Day[] days, String startTime, String endTime, Location location,
-			Set<Course> prereqs, Set<Course> coreqs) {
+			Set<String> prereqs, Set<String> coreqs) {
 		name = abbrev;
 		this.section = section;
 		this.term = (byte) term;
@@ -170,7 +170,7 @@ public class Course {
 	 * 
 	 * @return the pre-requisites for the course.
 	 */
-	public Set<Course> getPrereqs() {
+	public Set<String> getPrereqs() {
 		return prereqs;
 	}
 
@@ -179,7 +179,7 @@ public class Course {
 	 * 
 	 * @return the co-requisites for the course.
 	 */
-	public Set<Course> getCoreqs() {
+	public Set<String> getCoreqs() {
 		return coreqs;
 	}
 
