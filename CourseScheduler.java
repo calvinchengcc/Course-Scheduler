@@ -1,5 +1,7 @@
 import java.util.*;
 
+import org.jsoup.*;
+
 /**
  * Defines a class that produces an optimal schedule given a number of courses,
  * or notifies the user if no such schedule is possible.
@@ -13,7 +15,7 @@ public class CourseScheduler {
 	
 	private static Course a1 = new Course("CPSC 210", "101",
 			1, Day.MWF, "13:00", "15:00", new Location("ESB", "1013"),
-			new HashSet<Course>(), new HashSet<Course>());
+			new HashSet<String>(), new HashSet<String>());
 	
 	public static void main(String[] args) {
 		
